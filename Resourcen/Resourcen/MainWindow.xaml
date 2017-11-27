@@ -26,6 +26,7 @@
             </StackPanel.Resources>
             
             <Button Content="Change Color"
+                    Foreground="{StaticResource defaultForeground}"
                     Background="{StaticResource defaultBackgroundBrush}"
                     Click="changeColor"/>
 
@@ -35,6 +36,7 @@
                     Click="changeInstance"/>
 
             <Button Content="Change Type"
+                    Foreground="{StaticResource accentForegroud}"
                     Background="{DynamicResource defaultBackgroundBrush}"
                     Margin="0 4 0 0"
                     Click="changeType"/>

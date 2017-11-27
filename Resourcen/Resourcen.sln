@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resourcen", "Resourcen\Resourcen.csproj", "{10931E3F-20DC-43B5-B630-BB0CEBF9BFB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomResources", "CustomResources\CustomResources.csproj", "{34FD5B86-3C89-4F24-9FA6-C37AAB4DE868}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{10931E3F-20DC-43B5-B630-BB0CEBF9BFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10931E3F-20DC-43B5-B630-BB0CEBF9BFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10931E3F-20DC-43B5-B630-BB0CEBF9BFB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34FD5B86-3C89-4F24-9FA6-C37AAB4DE868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34FD5B86-3C89-4F24-9FA6-C37AAB4DE868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34FD5B86-3C89-4F24-9FA6-C37AAB4DE868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34FD5B86-3C89-4F24-9FA6-C37AAB4DE868}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

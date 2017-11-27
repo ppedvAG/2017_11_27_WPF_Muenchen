@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:Resourcen"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <SolidColorBrush x:Key="defaultBackgroundBrush" Color="#F75F79" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MyResources.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/CustomResources;component/MySpecialResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="defaultBackgroundBrush" Color="#F75F79" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
