@@ -53,5 +53,21 @@
         <Button Content="Click Me!" />
         <Button Content="Click Me!" />
     </WrapPanel>-->
-    
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled">
+        <StackPanel>
+            <Button Content="Click Me" />
+            <Button Content="Click Me" />
+            <Button Content="Click Me" />
+            <Button Content="Click Me" />
+            <Button Content="Click Me" />
+            <Button Content="Click Me" />
+            <Button Content="Click Me" />
+            <Button Content="Click Me" />
+            <Button Content="Click Me" />
+            <Button Content="Click Me" />
+            <Button Content="Click Me" />
+            <Button Content="Click Me" />
+        </StackPanel>
+    </ScrollViewer>
 </Window>
