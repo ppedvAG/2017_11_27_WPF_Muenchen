@@ -12,6 +12,22 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
+
+        <TextBlock Grid.Row="0" Margin="8"
+                   Text="Bitte geben Sie Ihren Text ein:" />
+
+        <TextBox Grid.Row="1"
+                 AcceptsReturn="True"
+                 AcceptsTab="True"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
+
+        <StackPanel Grid.Row="2"
+                    Margin="8"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+            <Button Content="OK" />
+            <Button Content="Abbrechen" Margin="8 0 0 0" />
+        </StackPanel>
     </Grid>
 </Window>
