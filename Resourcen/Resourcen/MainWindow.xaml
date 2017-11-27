@@ -3,10 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Resourcen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="350" Width="525" >
+    <Window.Resources>
+
+        <system:Double x:Key="defaultButtonHeight">40.8</system:Double>
+
+    </Window.Resources>
+    
+    <StackPanel Margin="50">
+
+        <Button Content="Click Me"
+                Background="{StaticResource defaultBackgroundBrush}" 
+                Height="{StaticResource defaultButtonHeight}"/>
+
+        <StackPanel Margin="0 20 0 0"
+                    Name="myStackpanel">
+            <StackPanel.Resources>
+                <SolidColorBrush x:Key="defaultBackgroundBrush" Color="#F1965C" />
+            </StackPanel.Resources>
+            
+            <Button Content="Change Color"
+                    Background="{StaticResource defaultBackgroundBrush}"
+                    Click="changeColor"/>
+
+            <Button Content="Change Instance"
+                    Background="{StaticResource defaultBackgroundBrush}"
+                    Margin="0 4 0 0"
+                    Click="changeInstance"/>
+
+            <Button Content="Change Type"
+                    Background="{DynamicResource defaultBackgroundBrush}"
+                    Margin="0 4 0 0"
+                    Click="changeType"/>
+        </StackPanel>
+
+    </StackPanel>
 </Window>

@@ -24,5 +24,25 @@ namespace Resourcen
         {
             InitializeComponent();
         }
+
+        private void changeColor(object sender, RoutedEventArgs e)
+        {
+            var brush = myStackpanel.FindResource("defaultBackgroundBrush") as SolidColorBrush;
+            if (brush != null)
+                brush.Color = Colors.CornflowerBlue;
+        }
+
+        private void changeInstance(object sender, RoutedEventArgs e)
+        {
+            myStackpanel.Resources["defaultBackgroundBrush"] = new SolidColorBrush(Colors.Firebrick);
+        }
+
+        private void changeType(object sender, RoutedEventArgs e)
+        {
+            myStackpanel.Resources["defaultBackgroundBrush"] = new LinearGradientBrush(
+                Colors.Blue,
+                Colors.Yellow,
+                0);
+        }
     }
 }
