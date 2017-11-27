@@ -6,7 +6,33 @@
         xmlns:local="clr-namespace:Styles"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <Window.Resources>
+        <Style x:Key="myButtonStyle" TargetType="Button">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0" Color="Orange" />
+                        <GradientStop Offset="0.5" Color="#90FC66" />
+                        <GradientStop Offset="1" Color="#5F09AB" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontSize" Value="28" />
+            <Setter Property="FontFamily" Value="Webdings" />
+            <Setter Property="Margin" Value="0 8 0 0" />
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource myButtonStyle}" />
         
-    </Grid>
+        <Style x:Key="errorButtonStyle" TargetType="Button"
+               BasedOn="{StaticResource myButtonStyle}">
+            <Setter Property="Background" Value="Red" />
+        </Style>
+        
+    </Window.Resources>
+    
+    <StackPanel Margin="50">
+        <Button Content="Aa Bb Cc Dd" />
+        <Button Content="Ee Ff Gg Hh" Style="{StaticResource errorButtonStyle}" />
+        <Button Content="Ii Jj Kk Ll" />
+    </StackPanel>
 </Window>
