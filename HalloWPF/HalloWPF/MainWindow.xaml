@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
 
-    <Canvas>
+    <!--<Canvas>
 
         <Rectangle Fill="#36E75F" Width="100" Height="80"
                    Canvas.Top="100" Canvas.Left="30"
@@ -16,6 +16,42 @@
         <Ellipse Fill="Orange" Width="50" Height="50"
                  Canvas.Top="80" Canvas.Left="40" />
 
-    </Canvas>
+    </Canvas>-->
+    <!--<StackPanel Orientation="Horizontal">
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" Margin="8 0 0 0" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+    </StackPanel>-->
+    <!--<WrapPanel Orientation="Vertical">
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+        <Button Content="Click Me!" />
+    </WrapPanel>-->
     
 </Window>
