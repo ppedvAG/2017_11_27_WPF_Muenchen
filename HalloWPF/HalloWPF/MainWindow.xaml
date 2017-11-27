@@ -53,7 +53,7 @@
         <Button Content="Click Me!" />
         <Button Content="Click Me!" />
     </WrapPanel>-->
-    <ScrollViewer VerticalScrollBarVisibility="Auto"
+    <!--<ScrollViewer VerticalScrollBarVisibility="Auto"
                   HorizontalScrollBarVisibility="Disabled">
         <StackPanel>
             <Button Content="Click Me" />
@@ -69,5 +69,24 @@
             <Button Content="Click Me" />
             <Button Content="Click Me" />
         </StackPanel>
-    </ScrollViewer>
+    </ScrollViewer>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.ColumnSpan="2"/>
+
+        <Rectangle Grid.Row="1"  Fill="Blue"/>
+        <Rectangle Grid.Row="2" Grid.Column="2"
+                   Height="50" Width="100" 
+                   Fill="Green"/>
+    </Grid>
 </Window>
