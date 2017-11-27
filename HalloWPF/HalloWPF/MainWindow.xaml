@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HalloWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Name="MeinTollesFenster"
+        Title="MainWindow" Height="350" Width="525"
+        PreviewMouseDown="previewMouseDown">
 
     <!--<Canvas>
 
@@ -70,7 +72,7 @@
             <Button Content="Click Me" />
         </StackPanel>
     </ScrollViewer>-->
-    <Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
             <RowDefinition Height="*" />
@@ -88,5 +90,44 @@
         <Rectangle Grid.Row="2" Grid.Column="2"
                    Height="50" Width="100" 
                    Fill="Green"/>
-    </Grid>
+    </Grid>-->
+
+    <!--<Grid Margin="20">
+
+        --><!--<Image Source="Schildkröte.jpg" />--><!--
+        <Image Source="https://c1.staticflickr.com/3/2926/14473062849_290057e314_z.jpg" 
+               Stretch="UniformToFill"/>
+
+        
+        
+    </Grid>-->
+
+    <StackPanel>
+        <RadioButton />
+        <RadioButton GroupName="meinName"/>
+        <RadioButton />
+        <RadioButton />
+
+        <StackPanel>
+            <RadioButton GroupName="meinName" />
+            <RadioButton GroupName="meinName" />
+            <RadioButton GroupName="meinName" />
+        </StackPanel>
+
+        <Slider Margin="8"
+                Foreground="Black"
+                Maximum="17"
+                TickPlacement="Both"
+                IsSnapToTickEnabled="True">
+            <Slider.Ticks>
+                0.5
+                4
+                9
+                16
+            </Slider.Ticks>
+        </Slider>
+
+        <ProgressBar Margin="8" Height="20" PreviewMouseDown="previewMouseDown" IsIndeterminate="True" />
+    </StackPanel>
+    
 </Window>
