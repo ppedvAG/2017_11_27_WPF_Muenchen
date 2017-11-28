@@ -6,7 +6,24 @@
         xmlns:local="clr-namespace:RelativeSourceSelf"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <StackPanel Margin="50">
+
+        <Rectangle Width="200" 
+                   Height="{Binding RelativeSource={RelativeSource Self}, Path=Width, Mode=TwoWay}"
+                   Fill="Blue" 
+                   Name="myRect" />
+
+        <Slider Maximum="200"
+                Value="{Binding ElementName=myRect, Path=Height}" />
+
+        <!--
         
-    </Grid>
+        var b = new Binding();
+        b.RelativeSource = new RelativeSource(RelativeSourceMode.Self);
+        
+        
+        
+        -->
+        
+    </StackPanel>
 </Window>
