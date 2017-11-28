@@ -6,7 +6,28 @@
         xmlns:local="clr-namespace:ConverterExample"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <StackPanel Margin="50">
+        <StackPanel.Resources>
+            <local:BoolToBrushConverter x:Key="bool2BrushConverter" />
+        </StackPanel.Resources>
         
-    </Grid>
+        <CheckBox Content="Check Me" HorizontalAlignment="Center" Name="myCheckBox" />
+
+        <Rectangle Width="300"
+                   Height="300"
+                   Margin="0 20 0 0"
+                   Fill="{Binding ElementName=myCheckBox, Path=IsChecked, Converter={StaticResource bool2BrushConverter}}" />
+
+        <Rectangle Margin="0 20 0 0"
+                   Height="300" Width="300">
+            <Rectangle.Fill>
+                <Binding ElementName="myCheckBox" Path="IsChecked">
+                    <Binding.Converter>
+                        <local:BoolToBrushConverter />
+                    </Binding.Converter>
+                </Binding>
+            </Rectangle.Fill>
+        </Rectangle>
+
+    </StackPanel>
 </Window>
