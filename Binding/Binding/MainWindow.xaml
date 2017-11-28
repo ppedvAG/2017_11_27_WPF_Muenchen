@@ -6,7 +6,30 @@
         xmlns:local="clr-namespace:Binding"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <StackPanel Margin="50">
+
+        <Slider Maximum="100" Name="mySlider" />
+
+        <ProgressBar Height="20" Margin="0 20 0 0"
+                     Value="{Binding ElementName=mySlider, Path=Value}"/>
+
+        <TextBlock Margin="0 20 0 0" Text="{Binding ElementName=mySlider, Path=Value, StringFormat='Ich hätte gerne {0:C}.', ConverterCulture=de-DE}" />
+
+        <TextBox Margin="0 20 0 0" Text="{Binding Valu, ElementName=mySlider, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=400}" />
         
-    </Grid>
+        <!--
+        
+        !! Stark vereinfacht!!
+        
+        var b = new Binding();
+        b.ElementName = "mySlider";
+        b.Path = "Value";
+        
+        
+        var b = new Binding("Value");
+        b.ElementName = "mySlider";
+        
+        -->
+
+    </StackPanel>
 </Window>
