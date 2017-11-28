@@ -23,6 +23,13 @@ namespace Templates
         public MainWindow()
         {
             InitializeComponent();
+
+            customerPresenter.Content = new Customer
+            {
+                Id = 4235235,
+                Firstname = "Peter",
+                Lastname = "Lustig"
+            };
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Button was clicked.");

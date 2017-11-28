@@ -10,13 +10,16 @@
         <ControlTemplate x:Key="buttonTemplate" TargetType="Button">
             <Grid>
                 <Ellipse Fill="{TemplateBinding Background}" />
-                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                   Margin="{TemplateBinding Padding}"/>
             </Grid>
         </ControlTemplate>
         <Style TargetType="Button">
             <Setter Property="Template" Value="{StaticResource buttonTemplate}" />
             <Setter Property="Background" Value="LightBlue" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
 
         <Style x:Key="FocusVisual">
@@ -75,6 +78,14 @@
             </Setter>
         </Style>
 
+        <DataTemplate DataType="{x:Type local:Person}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Id}" />
+                <TextBlock Text="{Binding Firstname}" Margin="8 0 0 0" />
+                <TextBlock Text="{Binding Lastname}" Margin="8 0 0 0" />
+            </StackPanel>
+        </DataTemplate>
+
     </Window.Resources>
 
     <StackPanel Margin="50">
@@ -87,5 +98,7 @@
             </Button.Content>
         </Button>
         <Button Content="Click Me4" Click="Button_Click" Background="Red" Padding="10" />
+
+        <ContentPresenter Margin="0 20 0 0" Name="customerPresenter"/>
     </StackPanel>
 </Window>
