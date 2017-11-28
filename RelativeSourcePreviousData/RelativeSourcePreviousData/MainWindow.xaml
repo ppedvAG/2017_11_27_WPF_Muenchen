@@ -7,6 +7,39 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+
+        <ScrollViewer>
+            <ItemsControl Name="dataView" Margin="20" Grid.IsSharedSizeScope="True" 
+                          VirtualizingPanel.IsVirtualizing="True"
+                          VirtualizingPanel.VirtualizationMode="Recycling">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:Item}">
+                        <Grid Margin="0 2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="previousDataColumn" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Text="{Binding RelativeSource={RelativeSource PreviousData}, Path=Value}" />
+
+                            <Border Grid.Column="1"
+                                    HorizontalAlignment="Left" Margin="8 0 0 0"
+                                    BorderBrush="DarkBlue" Background="LightBlue"
+                                    BorderThickness="2"
+                                    CornerRadius="2" Height="30"
+                                    Width="{Binding Value}">
+
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Text="{Binding Value}" />
+
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </Window>
