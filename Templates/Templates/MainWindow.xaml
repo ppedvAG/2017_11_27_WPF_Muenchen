@@ -12,7 +12,7 @@
                 <Ellipse Fill="{TemplateBinding Background}" />
                 <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                  Margin="{TemplateBinding Padding}"/>
+                                  Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Padding}"/>
             </Grid>
         </ControlTemplate>
         <Style TargetType="Button">
