@@ -7,6 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Border BorderBrush="Green"
+                BorderThickness="10"
+                CornerRadius="4"
+                Margin="50">
+
+            <Border BorderBrush="Red"
+                BorderThickness="10"
+                CornerRadius="4"
+                Margin="50">
+
+                <StackPanel HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+
+                    <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Border, AncestorLevel=1}, Path=BorderBrush}"
+                               Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Border, AncestorLevel=1}, Path=BorderBrush}"/>
+                    <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"
+                               Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Border, AncestorLevel=2}, Path=BorderBrush}"/>
+                    
+                </StackPanel>
+            </Border>
+        </Border>
     </Grid>
 </Window>
