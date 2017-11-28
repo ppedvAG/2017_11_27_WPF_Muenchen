@@ -15,10 +15,10 @@ namespace HalloWPF
 
         private void previewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (sender is Window w)
-                MessageBox.Show(w.Name);
-            else
-                MessageBox.Show("Was anderes");
+            //if (sender is Window w)
+            //    MessageBox.Show(w.Name);
+            //else
+            //    MessageBox.Show("Was anderes");
 
             //e.Handled = true;
         }

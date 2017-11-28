@@ -72,7 +72,7 @@
             <Button Content="Click Me" />
         </StackPanel>
     </ScrollViewer>-->
-    <!--<Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
             <RowDefinition Height="*" />
@@ -84,13 +84,18 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Button Grid.ColumnSpan="2"/>
+        <Button Grid.ColumnSpan="2" />
 
         <Rectangle Grid.Row="1"  Fill="Blue"/>
-        <Rectangle Grid.Row="2" Grid.Column="2"
+        <Rectangle Grid.Column="2" Grid.Row="1"  Fill="Red"/>
+
+        <GridSplitter Grid.RowSpan="3" Grid.Column="0" Width="2" HorizontalAlignment="Right"
+                      Background="Black" />
+
+        <Rectangle Grid.Row="2" Grid.Column="3"
                    Height="50" Width="100" 
                    Fill="Green"/>
-    </Grid>-->
+    </Grid>
 
     <!--<Grid Margin="20">
 
@@ -102,7 +107,7 @@
         
     </Grid>-->
 
-    <StackPanel>
+    <!--<StackPanel>
         <RadioButton />
         <RadioButton GroupName="meinName"/>
         <RadioButton />
@@ -128,6 +133,6 @@
         </Slider>
 
         <ProgressBar Margin="8" Height="20" PreviewMouseDown="previewMouseDown" IsIndeterminate="True" />
-    </StackPanel>
+    </StackPanel>-->
     
 </Window>
