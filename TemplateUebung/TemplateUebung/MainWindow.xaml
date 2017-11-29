@@ -6,7 +6,29 @@
         xmlns:local="clr-namespace:TemplateUebung"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="CheckBox">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="CheckBox">
+                            <ContentPresenter/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+                <Setter Property="Width" Value="200" />
+
+                <Style.Triggers>
+                    <Trigger Property="IsChecked" Value="True">
+                        <Setter Property="Width" Value="400" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </StackPanel.Resources>
+
+        <CheckBox>
+            <Image Source="https://c1.staticflickr.com/4/3845/14636697566_a21a0e8919_z.jpg" />
+        </CheckBox>
+    </StackPanel>
 </Window>
