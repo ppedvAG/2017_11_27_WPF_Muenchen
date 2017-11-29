@@ -71,10 +71,10 @@
                 <GradientStop Color="White" Offset="0.89"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBox HorizontalAlignment="Right" Height="28" Margin="0,0,68.333,0" TextWrapping="Wrap" Text="TextBox" Width="152.667" VerticalAlignment="Top"/>
-        <Button x:Name="StartButton" Content="Button" HorizontalAlignment="Right" Height="38.666" Margin="0,28,47.667,0" Width="106" VerticalAlignment="Top" Template="{DynamicResource MyButtonTemplate}"/>
+        <TextBox HorizontalAlignment="Right" Height="28" Margin="0,0,68.333,0" TextWrapping="Wrap" Text="{Binding Content, ElementName=StartButton}" Width="152.667" VerticalAlignment="Top"/>
+        <Button x:Name="StartButton" Content="Flieg Flugzug Fieg" HorizontalAlignment="Right" Height="37" Margin="0,28,48,0" Width="106" VerticalAlignment="Top" Template="{DynamicResource MyButtonTemplate}"/>
         <Path x:Name="path"
-              Fill="#FFF4F4F5" Margin="21.653,44.88,143.638,33.287" Stroke="Black" RenderTransformOrigin="0.5,0.5">
+              Fill="#FFF4F4F5" Margin="21.653,44.88,143.638,33.287" Stroke="Black" RenderTransformOrigin="0.5,0.5" StrokeDashArray="10 10">
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -116,6 +116,7 @@
                 <BlurEffect Radius="10"/>
             </Button.Effect>
         </Button>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="87" Stroke="Black" VerticalAlignment="Top" Width="87" StrokeThickness="30" StrokeDashArray="1 1"/>
 
     </Grid>
 </Window>
