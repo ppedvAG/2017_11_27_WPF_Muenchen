@@ -5,8 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MultiBindingExample"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="700" Width="525">
+    <StackPanel Margin="20">
+        <StackPanel.Resources>
+            <local:RgbToBrushConverter x:Key="rgb2BrushConverter" />
+        </StackPanel.Resources>
+
+        <Rectangle Name="colorRect"
+                   Height="300"
+                   Width="{Binding RelativeSource={RelativeSource Self}, Path=Height, Mode=TwoWay}">
+            <Rectangle.Fill>
+                <MultiBinding Converter="{StaticResource rgb2BrushConverter}" Mode="TwoWay">
+                    <Binding Mode="TwoWay" ElementName="AlphaSlider" Path="Value" />
+                    <Binding Mode="TwoWay" ElementName="RedSlider" Path="Value" />
+                    <Binding Mode="TwoWay" ElementName="GreenSlider" Path="Value" />
+                    <Binding Mode="TwoWay" ElementName="BlueSlider" Path="Value" />
+                </MultiBinding>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <StackPanel Margin="0 20 0 0" 
+                    Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="Slider">
+                    <Setter Property="Maximum" Value="255" />
+                    <Setter Property="Orientation" Value="Vertical" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="Height" Value="200" />
+                </Style>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Margin" Value="4" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="24" />
+                    <Setter Property="Margin" Value="0 4 0 0" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                </Style>
+            </StackPanel.Resources>
+
+            <StackPanel>
+                <Slider Name="AlphaSlider" Value="255" />
+                <TextBlock Text="A" />
+            </StackPanel>
+
+            <StackPanel>
+                <Slider Name="RedSlider" />
+                <TextBlock Text="R" />
+            </StackPanel>
+            
+            <StackPanel>
+                <Slider Name="GreenSlider" />
+                <TextBlock Text="G" />
+            </StackPanel>
+            
+            <StackPanel>
+                <Slider Name="BlueSlider" />
+                <TextBlock Text="B" />
+            </StackPanel>
+            
+        </StackPanel>
+
+        <TextBox Text="{Binding ElementName=colorRect, Path=Fill, UpdateSourceTrigger=PropertyChanged, Delay=600}" 
+                 HorizontalContentAlignment="Center"/>
+    </StackPanel>
 </Window>

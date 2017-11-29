@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Binding"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="{Binding ElementName=mySlider, Path=Value}" Height="350" Width="525">
     <StackPanel Margin="50">
 
         <Slider Maximum="100" Name="mySlider" />
@@ -15,7 +15,7 @@
 
         <TextBlock Margin="0 20 0 0" Text="{Binding ElementName=mySlider, Path=Value, StringFormat='Ich hätte gerne {0:C}.', ConverterCulture=de-DE}" />
 
-        <TextBox Margin="0 20 0 0" Text="{Binding Valu, ElementName=mySlider, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=400}" />
+        <TextBox Margin="0 20 0 0" Text="{Binding Value, ElementName=mySlider, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=400}" />
         
         <!--
         
