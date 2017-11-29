@@ -27,18 +27,47 @@
                 <Trigger Property="Text" Value="Rot">
                     <Setter Property="Background" Value="Red" />
                 </Trigger>
+                
+            </Style.Triggers>
+        </Style>
 
+        <Style TargetType="Image">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Width" Value="200" />
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <!--<Setter Property="Width" Value="350" />-->
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width"
+                                                 To="350" Duration="0:0:0.5" 
+                                                 AccelerationRatio="0.3"
+                                                 DecelerationRatio="0.3"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width"
+                                                 To="200" Duration="0:0:0.5"
+                                                 AccelerationRatio="0.3"
+                                                 DecelerationRatio="0.3"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
     
-    <StackPanel Margin="50">
+    <StackPanel Margin="50" Orientation="Horizontal">
 
-        <TextBox />
-        <TextBox />
-        <TextBox />
-        <TextBox />
-        <TextBox />
+        <Image Source="https://c1.staticflickr.com/4/3845/14636697566_a21a0e8919_z.jpg" />
+        <Image Source="https://c1.staticflickr.com/3/2926/14473062849_290057e314_z.jpg" />
+        <Image Source="https://c1.staticflickr.com/3/2931/14473022499_c7cdc1c658.jpg" />
 
     </StackPanel>
 </Window>
