@@ -6,7 +6,38 @@
         xmlns:local="clr-namespace:EventTrigger"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+
+    <Window.Resources>
+        <Style TargetType="Image">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Width" Value="200" />
+
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseDown">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation To="400" Duration="0:0:0.5"
+                                             Storyboard.TargetProperty="Width" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseUp">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation To="200" Duration="0:0:0.5"
+                                             Storyboard.TargetProperty="Width" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <StackPanel Margin="50" Orientation="Horizontal">
+
+        <Image Source="https://c1.staticflickr.com/4/3845/14636697566_a21a0e8919_z.jpg" />
+        <Image Source="https://c1.staticflickr.com/3/2926/14473062849_290057e314_z.jpg" />
+        <Image Source="https://c1.staticflickr.com/3/2931/14473022499_c7cdc1c658.jpg" />
+
+    </StackPanel>
 </Window>
