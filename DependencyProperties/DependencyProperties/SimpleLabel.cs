@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Windows;
+using System.Windows.Media;
 
 namespace DependencyProperties
 {
@@ -38,6 +40,26 @@ namespace DependencyProperties
         {
             get => (string)GetValue(textProperty);
             set => SetValue(textProperty, value);
+        }
+
+        private FormattedText GetFormattedText() => new FormattedText(
+            textToFormat: Text,
+            culture: CultureInfo.InvariantCulture,
+            flowDirection: FlowDirection.LeftToRight,
+            typeface: new Typeface("Arial"),
+            emSize: FontSize,
+            foreground: Brushes.Black);
+
+        protected override Size MeasureOverride(Size availableSize)
+        {
+            var formattedText = GetFormattedText();
+            return new Size(formattedText.Width + 5, formattedText.Height + 5);
+        }
+
+        protected override void OnRender(DrawingContext drawingContext)
+        {
+            drawingContext.DrawRectangle(Brushes.LightGray, null, new Rect(RenderSize));
+            drawingContext.DrawText(GetFormattedText(), new Point(2.5, 2.5));
         }
     }
 }
