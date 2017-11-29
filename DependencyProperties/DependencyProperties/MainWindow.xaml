@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:DependencyProperties"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <StackPanel Margin="20">
+
+        <Slider Name="mySlider" Maximum="150" />
+
+        <local:SimpleLabel Text="Hallo Dependency Properties!"
+                           FontSize="{Binding ElementName=mySlider, Path=Value}"
+                           Background="#A6DFE424"
+                           Margin="0 20 0 0">
+            <local:SimpleLabel.Foreground>
+                <ImageBrush ImageSource="https://c1.staticflickr.com/4/3845/14636697566_a21a0e8919_z.jpg" Stretch="UniformToFill" />
+            </local:SimpleLabel.Foreground>
+        </local:SimpleLabel>
+
+    </StackPanel>
 </Window>

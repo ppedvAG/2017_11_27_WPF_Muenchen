@@ -8,6 +8,8 @@ namespace DependencyProperties
     {
         public static readonly DependencyProperty fontSizeProperty;
         public static readonly DependencyProperty textProperty;
+        public static readonly DependencyProperty backgroundProperty;
+        public static readonly DependencyProperty foregroundProperty;
 
         static SimpleLabel()
         {
@@ -29,6 +31,22 @@ namespace DependencyProperties
                 new FrameworkPropertyMetadata(
                     string.Empty,
                     FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender));
+
+            backgroundProperty = DependencyProperty.Register(
+                nameof(Background),
+                typeof(Brush),
+                typeof(SimpleLabel),
+                new FrameworkPropertyMetadata(
+                    Brushes.LightGray,
+                    FrameworkPropertyMetadataOptions.AffectsRender));
+
+            foregroundProperty = DependencyProperty.Register(
+                nameof(Foreground),
+                typeof(Brush),
+                typeof(SimpleLabel),
+                new FrameworkPropertyMetadata(
+                    Brushes.Black,
+                    FrameworkPropertyMetadataOptions.AffectsRender));
         }
 
         public double FontSize
@@ -41,6 +59,16 @@ namespace DependencyProperties
             get => (string)GetValue(textProperty);
             set => SetValue(textProperty, value);
         }
+        public Brush Background
+        {
+            get => (Brush)GetValue(backgroundProperty);
+            set => SetValue(backgroundProperty, value);
+        }
+        public Brush Foreground
+        {
+            get => (Brush)GetValue(foregroundProperty);
+            set => SetValue(foregroundProperty, value);
+        }
 
         private FormattedText GetFormattedText() => new FormattedText(
             textToFormat: Text,
@@ -48,7 +76,7 @@ namespace DependencyProperties
             flowDirection: FlowDirection.LeftToRight,
             typeface: new Typeface("Arial"),
             emSize: FontSize,
-            foreground: Brushes.Black);
+            foreground: Foreground);
 
         protected override Size MeasureOverride(Size availableSize)
         {
@@ -58,7 +86,7 @@ namespace DependencyProperties
 
         protected override void OnRender(DrawingContext drawingContext)
         {
-            drawingContext.DrawRectangle(Brushes.LightGray, null, new Rect(RenderSize));
+            drawingContext.DrawRectangle(Background, null, new Rect(RenderSize));
             drawingContext.DrawText(GetFormattedText(), new Point(2.5, 2.5));
         }
     }
