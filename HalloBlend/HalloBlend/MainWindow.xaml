@@ -6,7 +6,116 @@
         xmlns:local="clr-namespace:HalloBlend"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+    <Window.Resources>
+        <Storyboard x:Key="storyboard" AutoReverse="True" RepeatBehavior="Forever">
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[0].(BezierSegment.Point1)" Storyboard.TargetName="path">
+                <EasingPointKeyFrame KeyTime="0" Value="333.743028238819,75.6859560571669"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="335.771166827962,75.3297256844931"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[14].(BezierSegment.Point2)" Storyboard.TargetName="path">
+                <EasingPointKeyFrame KeyTime="0" Value="352.765516370041,117.918986150577"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="341.013666666667,96.9533333333333"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[2].(LineSegment.Point)" Storyboard.TargetName="path">
+                <EasingPointKeyFrame KeyTime="0" Value="108.694056279233,6.53372405403665"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="105.847,74.6200000000001"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[3].(LineSegment.Point)" Storyboard.TargetName="path">
+                <EasingPointKeyFrame KeyTime="0" Value="77.5220369798616,13.1981206658166"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="87.847,87.1200000000002"/>
+            </PointAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="grid">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF41E028"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FF2895E0"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="grid">
+                <EasingColorKeyFrame KeyTime="0" Value="White"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FFF72EDC"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <ControlTemplate x:Key="MyButtonTemplate" TargetType="{x:Type Button}">
+            <Grid>
+                <Ellipse Margin="0" StrokeThickness="4" StrokeDashArray="1 2 3 2">
+                    <Ellipse.Stroke>
+                        <LinearGradientBrush EndPoint="0.956,0.504" StartPoint="0.016,0.506">
+                            <GradientStop Color="#FF12E0F5"/>
+                            <GradientStop Color="#FFE7F10C" Offset="1"/>
+                            <GradientStop Color="#FF0CF340" Offset="0.527"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Stroke>
+                    <Ellipse.Fill>
+                        <LinearGradientBrush EndPoint="0.919,0.509" StartPoint="0.241,0.518">
+                            <GradientStop Color="#FFEAD92D" Offset="0"/>
+                            <GradientStop Color="#FF26FBFB" Offset="1"/>
+                            <GradientStop Color="#FFEE1FEE" Offset="0.51"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <ContentPresenter Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="StartButton">
+            <BeginStoryboard Storyboard="{StaticResource storyboard}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid x:Name="grid">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.869,-0.011" StartPoint="0.196,1.058">
+                <GradientStop Color="#FF41E028" Offset="0.082"/>
+                <GradientStop Color="White" Offset="0.89"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBox HorizontalAlignment="Right" Height="28" Margin="0,0,68.333,0" TextWrapping="Wrap" Text="TextBox" Width="152.667" VerticalAlignment="Top"/>
+        <Button x:Name="StartButton" Content="Button" HorizontalAlignment="Right" Height="38.666" Margin="0,28,47.667,0" Width="106" VerticalAlignment="Top" Template="{DynamicResource MyButtonTemplate}"/>
+        <Path x:Name="path"
+              Fill="#FFF4F4F5" Margin="21.653,44.88,143.638,33.287" Stroke="Black" RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="360.033"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure StartPoint="18.9316970402054,208.164390171221">
+                        <LineSegment Point="329.019847138664,208.164390171221"/>
+                        <LineSegment Point="329.019847138664,234.299278844867"/>
+                        <LineSegment Point="18.9316970402054,234.299278844867"/>
+                        <LineSegment Point="18.9316970402054,208.164390171221"/>
+                    </PathFigure>
+                    <PathFigure IsClosed="True" StartPoint="338.322491641618,85.8531111785543">
+                        <BezierSegment Point3="308.292902368925,72.0016201815216" Point2="321.349245530966,69.1267824274204" Point1="333.743028238819,75.6859560571669"/>
+                        <LineSegment Point="221.631424630882,90.5573911398107"/>
+                        <LineSegment Point="108.694056279233,6.53372405403665"/>
+                        <LineSegment Point="77.5220369798616,13.1981206658166"/>
+                        <LineSegment Point="145.088612843421,106.89169656084"/>
+                        <LineSegment Point="63.9760809492447,124.271397528815"/>
+                        <LineSegment Point="31.8248359127203,104.147533250107"/>
+                        <LineSegment Point="8.16021393152215,109.243836541468"/>
+                        <LineSegment Point="37.863394625164,150.53696064583"/>
+                        <LineSegment Point="50.4301249186278,167.916661613805"/>
+                        <LineSegment Point="76.5428112427086,162.428334992339"/>
+                        <LineSegment Point="163.204288980752,143.741889590682"/>
+                        <LineSegment Point="234.198154924346,128.583654159967"/>
+                        <LineSegment Point="320.859632662389,110.158557645046"/>
+                        <BezierSegment Point3="338.322491641618,85.8531111785543" Point2="352.765516370041,117.918986150577" Point1="334.079180113955,107.022371004208"/>
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Right" Margin="0,137.167,22.833,116.333" Width="93.5" Template="{DynamicResource MyButtonTemplate}">
+            <Button.Effect>
+                <BlurEffect Radius="10"/>
+            </Button.Effect>
+        </Button>
+
     </Grid>
 </Window>
