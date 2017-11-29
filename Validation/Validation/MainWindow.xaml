@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Validation"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
@@ -32,9 +33,24 @@
 
     <StackPanel Margin="50">
 
-        <Slider Name="mySlider" />
+        <Slider Name="mySlider" Maximum="30" 
+                TickPlacement="BottomRight"
+                IsSnapToTickEnabled="True">
+            <Slider.Ticks>
+                10
+                20
+                29
+            </Slider.Ticks>
+        </Slider>
 
-        <TextBox Margin="0 20 0 0" Text="{Binding ElementName=mySlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" />
-
+        <TextBox Margin="0 20 0 0">
+            <TextBox.Text>
+                <Binding ElementName="mySlider" Path="Value" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:MustNotBe29ValidationRule ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
     </StackPanel>
 </Window>
