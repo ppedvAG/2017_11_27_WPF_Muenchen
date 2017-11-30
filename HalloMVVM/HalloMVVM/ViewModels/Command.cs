@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
 
 namespace HalloMVVM.ViewModels
 {
-    internal class Command : ICommand
+    internal class Command : ICommand, IDisposable
     {
+        private readonly List<(INotifyPropertyChanged viewModel, PropertyChangedEventHandler eventHandler)> observedProperties = new List<(INotifyPropertyChanged, PropertyChangedEventHandler)>();
+
         private readonly Action execute;
         private readonly Func<bool> canExecute;
 
@@ -19,12 +22,29 @@ namespace HalloMVVM.ViewModels
 
         public Command ObservesProperty(INotifyPropertyChanged viewModel, string propertyName)
         {
-            viewModel.PropertyChanged += (s, args) =>
+            PropertyChangedEventHandler canExecuteChanged = (s, args) =>
             {
                 if (args.PropertyName == propertyName)
                     CanExecuteChanged?.Invoke(this, new EventArgs());
             };
+            viewModel.PropertyChanged += canExecuteChanged;
+            observedProperties.Add((viewModel, canExecuteChanged));
+
             return this;
         }
+
+        private bool isDisposed;
+        public void Dispose()
+        {
+            if (isDisposed)
+                return;
+
+            observedProperties.ForEach(e => e.viewModel.PropertyChanged -= e.eventHandler);
+            observedProperties.Clear();
+
+            isDisposed = true;
+        }
+
+        ~Command() => Dispose();
     }
 }
