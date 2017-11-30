@@ -3,10 +3,12 @@ using System.Windows.Controls;
 
 namespace Validation
 {
-    internal class MustNotBe29ValidationRule : ValidationRule
+    internal class MustNotBeForbiddenVAlueValidationRule : ValidationRule
     {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo) => value is string s && s == "29"
-            ? new ValidationResult(false, "29 gefällt mir nicht. :P")
+        public string ForbiddenValue { get; set; } = "29";
+
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo) => value is string s && s == ForbiddenValue
+            ? new ValidationResult(false, $"{ForbiddenValue} gefällt mir nicht. :P")
             : ValidationResult.ValidResult;
     }
 }

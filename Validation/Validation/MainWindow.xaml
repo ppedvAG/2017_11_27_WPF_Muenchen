@@ -47,7 +47,7 @@
             <TextBox.Text>
                 <Binding ElementName="mySlider" Path="Value" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
-                        <local:MustNotBe29ValidationRule ValidatesOnTargetUpdated="True" />
+                        <local:MustNotBeForbiddenVAlueValidationRule ValidatesOnTargetUpdated="True" ForbiddenValue="10" />
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
