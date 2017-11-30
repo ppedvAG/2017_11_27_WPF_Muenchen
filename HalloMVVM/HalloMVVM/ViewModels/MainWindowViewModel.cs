@@ -8,5 +8,13 @@
             get => welcomeText;
             set => Set(ref welcomeText, value);
         }
+
+        public Command ChangeTextCommand { get; }
+
+        public MainWindowViewModel()
+        {
+            ChangeTextCommand = new Command(() => WelcomeText = "Hallo aus dem VM!", () => WelcomeText?.Length < 10)
+                .ObservesProperty(this, nameof(WelcomeText));
+        }
     }
 }

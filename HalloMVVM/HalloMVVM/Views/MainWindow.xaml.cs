@@ -7,7 +7,7 @@ namespace HalloMVVM.Views
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModels.MainWindowViewModel();
+            //DataContext = new ViewModels.MainWindowViewModel();
         }
 
         private void ChangeText(object sender, RoutedEventArgs e) => (DataContext as ViewModels.MainWindowViewModel).WelcomeText = "Mein neuer Text aus dem Code Behind";
